@@ -18,10 +18,10 @@ function populateHours() {
       ? $(this).addClass("present")
       : listHour > hour
       ? $(this).addClass("future")
-      : $(this).addClass("past");
+      : $(this).addClass("past"); 
+      populateTextField(timeList);
   });
-
-  populateTextField(timeList);
+  
 }
 
 //This function takes the same timeList passed on from populateHours
@@ -29,18 +29,15 @@ function populateHours() {
 //I am using $(this).data(hour) for the identifier for each textarea.
 
 function populateTextField(timeList) {
-  timeList.each(function (i) {
-    if (JSON.parse(storage.getItem($(this).data("hour"))) == null) {
-      return;
-    } else {
-      $(this).text(JSON.parse(storage.getItem($(this).data("hour"))));
-      console.log(JSON.parse(storage.getItem($(this).data("hour"))));
+    if (JSON.parse(storage.getItem($(timeList).data("hour"))) !== null) {
+
+      $(timeList).text(JSON.parse(storage.getItem($(timeList).data("hour"))));
+      console.log(JSON.parse(storage.getItem($(timeList).data("hour"))));
     }
-  });
 }
 
-let storage = window.localStorage;
 
+let storage = window.localStorage;
 var saveButton = $(".saveBtn");
 
 saveButton.on("click", function () {
