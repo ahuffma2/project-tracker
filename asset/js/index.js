@@ -2,8 +2,7 @@ var now = moment().format("dddd, MMMM Do YYYY, h:mm a");
 
 //SETS HEADER TO CURRENT TIME
 function headerTime() {
-  var header = document.getElementById("currentDay");
-  header.textContent = now;
+  $('#currentDay').text(now);
 }
 
 //This function assigns the colors based on time
@@ -19,9 +18,8 @@ function populateHours() {
       : listHour > hour
       ? $(this).addClass("future")
       : $(this).addClass("past"); 
-      populateTextField(timeList);
   });
-  
+  populateTextField(timeList);
 }
 
 //This function takes the same timeList passed on from populateHours
@@ -29,13 +27,14 @@ function populateHours() {
 //I am using $(this).data(hour) for the identifier for each textarea.
 
 function populateTextField(timeList) {
-    if (JSON.parse(storage.getItem($(timeList).data("hour"))) !== null) {
+  timeList.each(function (i) {
+    if (JSON.parse(storage.getItem($(this).data("hour"))) !== null) {
 
-      $(timeList).text(JSON.parse(storage.getItem($(timeList).data("hour"))));
-      console.log(JSON.parse(storage.getItem($(timeList).data("hour"))));
+      $(this).text(JSON.parse(storage.getItem($(this).data("hour"))));
+      console.log(JSON.parse(storage.getItem($(this).data("hour"))));
     }
+  });
 }
-
 
 let storage = window.localStorage;
 var saveButton = $(".saveBtn");
