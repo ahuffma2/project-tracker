@@ -52,7 +52,12 @@ saveButton.on("click", function () {
 ```
 and lastly an Init() function to call headerTime and populateHours. 
   
----
-## Author
+## Technology
+ * JAVASCRIPT
+ * HTML
+ * CSS
+ * JQUERY
+ * BOOTSTRAP
 
-  
+## Author
+  [Austin Huffman](https://www.linkedin.com/in/ahuffma2)
