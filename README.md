@@ -1,5 +1,5 @@
 # Project Tracker
-This website allows you to track daily tasks and the times they were assigned.
+This website allows you to track daily tasks and sort them by color-coded time. 
 
 ## Usage
 User can input their daily task in a an hour blocks and save them. The user can see each hour block color coded according to past tasks, current tasks , and future tasks.
